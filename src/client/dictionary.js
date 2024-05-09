@@ -29,6 +29,16 @@ const Result = (status, message, error = null, data = null) => {
  */
 const fetchDictionary = async (dictName) => {
   // TASK #2: Implement the fetchDictionary function.
+  try {
+    const response = await(fetch(dictName));
+    if (!response.ok) {
+      return new Result('error', `Error fetching dictionary: ${response.statusText}`, response.statusText, null);
+    }
+    const data = await response.json();
+    return new Result('success', 'Dictionary fetched successfully', null, data);
+  } catch (error) {
+    return new Result('error', `Error fetching dictionary: ${error.message}`, error.message, null);
+  }
 };
 
 /**
