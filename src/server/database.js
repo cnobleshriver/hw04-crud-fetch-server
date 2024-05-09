@@ -148,7 +148,6 @@ const Database = async (dbname) => {
      */
     top10WordScores: async () => {
       // TASK #8: Implement top10WordScores
-
       try {
         const db = getDB();
         const data = await db.get("words");

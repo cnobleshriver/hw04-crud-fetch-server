@@ -21,6 +21,10 @@ async function basicServer(request, response) {
 
     // TASK #10: Implement the /wordScore endpoint.
     // Add your implementation here.
+    const { name, word, score } = query;
+    await database.saveWordScore(name, word, score);
+    response.writeHead(200);
+    response.end();
 
     // HTTP status code 501 Not Implemented is returned by a server when the
     // request method is not supported by the server and cannot be handled. This
@@ -36,6 +40,9 @@ async function basicServer(request, response) {
 
     // TASK #11: Implement the /highestWordScores endpoint.
     // Add your implementation here.
+    const top10WordScores = await database.top10WordScores();
+    response.writeHead(200);
+    response.end(JSON.stringify(top10WordScores));
 
     // HTTP status code 501 Not Implemented is returned by a server when the
     // request method is not supported by the server and cannot be handled. This
@@ -48,9 +55,13 @@ async function basicServer(request, response) {
   } else if (method === "POST" && pathname === "/gameScore") {
     // Create a new database instance.
     const database = await Database("scrabble");
-
+    
     // TASK #12: Implement the /gameScore endpoint.
     // Add your implementation here.
+    const { name, score } = query;
+    await database.saveGameScore(name, score);
+    response.writeHead(200);
+    response.end();
 
     // HTTP status code 501 Not Implemented is returned by a server when the
     // request method is not supported by the server and cannot be handled. This
@@ -65,6 +76,9 @@ async function basicServer(request, response) {
 
     // TASK #13: Implement the /highestGameScores endpoint.
     // Add your implementation here.
+    const top10GameScores = await database.top10GameScores();
+    response.writeHead(200);
+    response.end(JSON.stringify(top10GameScores));
 
     // HTTP status code 501 Not Implemented is returned by a server when the
     // request method is not supported by the server and cannot be handled. This
