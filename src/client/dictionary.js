@@ -32,12 +32,12 @@ const fetchDictionary = async (dictName) => {
   try {
     const response = await fetch(dictName);
     if (!response.ok) {
-      return new Result('error', `Error fetching dictionary: ${response.statusText}`, response.statusText, null);
+      return Result('error', 'Error fetching dictionary', null, null);
     }
     const data = await response.json();
-    return new Result('success', 'Dictionary fetched successfully', null, data);
+    return Result('success', 'Dictionary fetched successfully', null, data);
   } catch (error) {
-    return new Result('error', `Error fetching dictionary: ${error.message}`, error.message, null);
+    return Result('error', 'Error fetching dictionary', error.message, null);
   }
 };
 
