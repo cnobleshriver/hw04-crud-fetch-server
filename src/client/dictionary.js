@@ -30,7 +30,7 @@ const Result = (status, message, error = null, data = null) => {
 const fetchDictionary = async (dictName) => {
   // TASK #2: Implement the fetchDictionary function.
   try {
-    const response = await(fetch(dictName));
+    const response = await fetch(dictName);
     if (!response.ok) {
       return new Result('error', `Error fetching dictionary: ${response.statusText}`, response.statusText, null);
     }

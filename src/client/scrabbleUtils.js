@@ -152,7 +152,7 @@ async function possibleWords(availableTiles) {
   // TASK #5: Fix the following code to use the new dictionary object.
   //          Remember, you need to call the get method to retrieve the
   //          dictionary words.
-  const words = dictionary.get();
+  const words = await dictionary.get();
   for (let word of words) {
     if (canConstructWord(availableTiles, word)) {
       possibilities.push(word);
@@ -217,7 +217,7 @@ async function isValid(word) {
     // TASK #6: Fix the following code to use the new dictionary object.
     //          Remember, you need to call the get method to retrieve the
     //          dictionary words.
-    const words = dictionary.get();
+    const words = await dictionary.get();
     return words.includes(word);
   }
 
