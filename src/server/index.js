@@ -32,7 +32,7 @@ async function basicServer(request, response) {
     // method, or it lacks the ability to fulfill the request. Essentially, the
     // server understands the request method, but it doesn't have the
     // capabilities to execute it.
-    response.writeHead(501);
+    // response.writeHead(501);
   } else if (method === "GET" && pathname === "/highestWordScores") {
     console.log("GET /highestWordScores");
     // Create a new database instance.
@@ -50,8 +50,8 @@ async function basicServer(request, response) {
     // method, or it lacks the ability to fulfill the request. Essentially, the
     // server understands the request method, but it doesn't have the
     // capabilities to execute it.
-    response.writeHead(501);
-    response.end();
+    // response.writeHead(501);
+    // response.end();
   } else if (method === "POST" && pathname === "/gameScore") {
     // Create a new database instance.
     const database = await Database("scrabble");
@@ -69,7 +69,7 @@ async function basicServer(request, response) {
     // method, or it lacks the ability to fulfill the request. Essentially, the
     // server understands the request method, but it doesn't have the
     // capabilities to execute it.
-    response.writeHead(501);
+    // response.writeHead(501);
   } else if (method === "GET" && pathname === "/highestGameScores") {
     // Create a new database instance.
     const database = await Database("scrabble");
@@ -86,7 +86,7 @@ async function basicServer(request, response) {
     // method, or it lacks the ability to fulfill the request. Essentially, the
     // server understands the request method, but it doesn't have the
     // capabilities to execute it.
-    response.writeHead(501);
+    // response.writeHead(501);
   } else {
     // This part handles the static files. If we do not match any of the routes
     // above, we assume it is a static file and serve it from the 'client'
